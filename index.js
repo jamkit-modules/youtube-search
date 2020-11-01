@@ -22,6 +22,18 @@ var module = (function() {
         }
     }
 
+    function _get_object(id, handler) {
+        const object = view.object(id);
+
+        if (!object) {
+            timeout(0.1, function() {
+                _get_object(id, handler);
+            });
+        } else {
+            handler(object);
+        }
+    }
+
     return {
         initialize: function(id) {
             var web_prefix = id.replace(".", "_");
@@ -70,10 +82,12 @@ var module = (function() {
                 }
 
                 if (location === 0) {
-                    feed.reset();
-                    view.object(_id + ".web").property({
-                        "url": "https://www.youtube.com/results?search_query=" + encodeURIComponent(keyword)
-                    });
+                    _get_object(_id + ".web", function(object) {
+                        feed.reset();
+                        object.property({ 
+                            "url": "https://www.youtube.com/results?search_query=" + encodeURIComponent(keyword) 
+                        });
+                    })
 
                     _web_loaded = false;
                 }
