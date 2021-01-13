@@ -45,9 +45,9 @@ var module = (function() {
 
             webjs.initialize(id + ".web", "__$_bridge");
             view.object(id).action("load", { 
-                "filename":dir_path + "/web.sbml",
-                "web-id":id, 
-                "web-prefix":web_prefix
+                "filename": dir_path + "/web.sbml",
+                "web-id": id, 
+                "web-prefix": web_prefix
             });
 
             _id = id, _dir_path = dir_path;
@@ -65,10 +65,10 @@ var module = (function() {
                 
                                 result["videos"].forEach(function(video) {
                                     videos.push({
-                                        "video-id":video["url"].match(/v=([^&#]+)/)[1],
-                                        "title":video["title"],
-                                        "view-count":video["viewCount"],
-                                        "published-at":video["publishedDate"]
+                                        "video-id": video["url"].match(/v=([^&#]+)/)[1],
+                                        "title": video["title"],
+                                        "view-count": video["viewCount"],
+                                        "published-at": video["publishedDate"]
                                     });
                                 });
                 
