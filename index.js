@@ -2,8 +2,7 @@ var module = (function() {
     const webjs = require("webjs-helper"),
           feed  = require("webjs-feed");
 
-    var _id = "", _handlers = [];
-    var _dir_path = "";
+    var _id = "", _dir_path = "", _handlers = [];
     var _web_loaded = false;
 
     function _on_web_loaded(data) {
@@ -46,6 +45,7 @@ var module = (function() {
             webjs.initialize(id + ".web", "__$_bridge");
             view.object(id).action("load", { 
                 "filename": dir_path + "/web.sbml",
+                "dir-path": dir_path,
                 "web-id": id, 
                 "web-prefix": web_prefix
             });
