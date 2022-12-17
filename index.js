@@ -37,12 +37,15 @@ var module = (function() {
         initialize: function(id) {
             var web_prefix = id.replace(".", "_");
             var dir_path = this.__ENV__["dir-path"];
+            
+            global[web_prefix + "__on_web_activate"] = function() {
+                webjs.initialize(id + ".web", "__$_bridge");
+            }
 
-            global[web_prefix + "__on_web_loaded"] = function (data) {
+            global[web_prefix + "__on_web_loaded"] = function(data) {
                 _on_web_loaded(data);
             }
 
-            webjs.initialize(id + ".web", "__$_bridge");
             view.object(id).action("load", { 
                 "filename": dir_path + "/web.sbml",
                 "dir-path": dir_path,
@@ -64,14 +67,19 @@ var module = (function() {
                                 var videos = [];
                 
                                 result["videos"].forEach(function(video) {
-                                    videos.push({
-                                        "video-id": video["url"].match(/v=([^&#]+)/)[1],
-                                        "title": video["title"],
-                                        "view-count": video["viewCount"],
-                                        "published-at": video["publishedDate"]
-                                    });
+                                    var video_id = video["url"].match(/v=([^&#]+)|shorts\/([^/?]+)/);
+
+                                    if (video_id) {
+                                        videos.push({
+                                            "video-id": video_id[1] || video_id[2],
+                                            "type": video_id[2] ? "shorts" : "video",
+                                            "title": video["title"],
+                                            "view-count": video["viewCount"],
+                                            "published-at": video["publishedDate"]
+                                        });
+                                    }
                                 });
-                
+
                                 feed.on_feed_done("videos", location + result["videos"].length);
                                 resolve(videos);
                             })
@@ -87,7 +95,7 @@ var module = (function() {
                         object.property({ 
                             "url": "https://www.youtube.com/results?search_query=" + encodeURIComponent(keyword) 
                         });
-                    })
+                    });
 
                     _web_loaded = false;
                 }
