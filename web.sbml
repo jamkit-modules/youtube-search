@@ -2,6 +2,7 @@
 
 =object web: id=${web-id}.web, \
             javascript-bridge="__$_bridge", uses-browser-user-agent=yes, \
+            script-when-activate=${web-prefix}__on_web_activate, \
             script-when-loaded=${web-prefix}__on_web_loaded, \
             style=web
 
