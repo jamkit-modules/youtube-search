@@ -5,7 +5,7 @@ function getVideos(nextToken, onResult, onError) {
                 _getVideos(nextToken, 1, onResult, onError);
             }, 200);
         } else {
-            onResult({ "videos":[] });
+            onResult({ "videos": [] });
         }
     } else {
         _getVideos(0, 0, onResult, onError);        
