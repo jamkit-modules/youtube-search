@@ -37,12 +37,12 @@ var module = (function() {
         initialize: function(id) {
             var web_prefix = id.replace(".", "_");
             var dir_path = this.__ENV__["dir-path"];
-            
-            global[web_prefix + "__on_web_activate"] = function() {
-                webjs.initialize(id + ".web", "__$_bridge");
-            }
 
             global[web_prefix + "__on_web_loaded"] = function(data) {
+                if (data["is-for-main-frame"] === "yes") {
+                    webjs.configure(id + ".web", "__$_bridge");
+                }
+                
                 _on_web_loaded(data);
             }
 
