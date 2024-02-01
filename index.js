@@ -91,7 +91,7 @@ const module = (function() {
                 }
 
                 if (location === 0) {
-                    _get_object(_id + ".web", (object) => {
+                    _get_object(`${_id}.web`, (object) => {
                         feed.reset();
                         object.property({ 
                             "url": `https://www.youtube.com/results?search_query=${encodeURIComponent(keyword)}` 
