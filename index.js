@@ -40,7 +40,7 @@ const module = (function() {
 
             global[`${web_prefix}__on_web_loaded`] = function(data) {
                 if (data["is-for-main-frame"] === "yes") {
-                    webjs.initialize(`${id}.web`, "__bridge__");
+                    webjs.initialize(`${id}.web`, "__web_bridge__");
                 }
                 
                 _on_web_loaded(data);
