@@ -14,8 +14,8 @@ function getVideos(nextToken, onResult, onError) {
 
 function _getVideos(location, waitingCount, onResult, onError) {
     try {
-        var videoItems = document.getElementsByTagName('ytm-video-with-context-renderer');
-        var videos = [];
+        const videoItems = document.getElementsByTagName('ytm-video-with-context-renderer');
+        const videos = [];
 
         if (videoItems.length > location) {
             for (var i = location; i < videoItems.length; i++) {

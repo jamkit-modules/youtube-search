@@ -1,7 +1,7 @@
 =begin sbml
 
 =object web: id=${web-id}.web, \
-            javascript-bridge="__$_bridge", uses-browser-user-agent=yes, \
+            javascript-bridge="__bridge__", uses-browser-user-agent=yes, \
             script-when-loaded=${web-prefix}__on_web_loaded, \
             style=web
 

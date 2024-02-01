@@ -1,1 +1,7 @@
-#web: width=1pw, height=1ph, position=abs, gravity=center, autoresizing=flexible-size
+#web {
+    width: 1pw;
+    height: 1ph;
+    position: absolute;
+    gravity: center;
+    autoresizing: flexible-size;
+}
