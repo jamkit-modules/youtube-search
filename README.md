@@ -39,7 +39,7 @@ youtube.search("Blackpink MV", 0)
  
 - **Returns**: `module` - 초기화한 모듈 자체의 인스턴스 
 
-### `search(keyword, location)`
+### `search(keyword, location)`
 
 - **Parameters**:
   - `keyword` (string) - 검색 키워드
