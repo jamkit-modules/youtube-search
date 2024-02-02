@@ -60,7 +60,7 @@ const module = (function() {
 
         search: function(keyword, location = 0) {
             return new Promise((resolve, reject) => {
-                const handler = () => {
+                const handler = function() {
                     feed.feed("videos")
                         .then((next_token) => {
                             return webjs.call("getVideos", [ next_token ]);
