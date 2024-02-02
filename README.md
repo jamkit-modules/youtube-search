@@ -53,7 +53,7 @@ youtube.search("Blackpink MV", 0)
   - `keyword` (string) - 검색 키워드
   - `location` (number, optional, default=0) - 유튜브 검색 목록에서 가져올 첫번째 인덱스
  
-- **Returns**: `Promise<Array<VideoInfo>>` - 각 비디오의 정보를 담고 있는 `VideoInfo` 객체의 배열을 포함하는 `Promise`
+- **Returns**: `Promise<Array<VideoInfo>>` - 각 비디오의 정보를 담고 있는 `VideoInfo` 객체의 배열을 전달하는 `Promise`
 
 - **VideoInfo**:
   - `type` (string) - 비디오 타입. `video` 혹은 `shorts`

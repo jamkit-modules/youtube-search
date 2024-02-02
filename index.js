@@ -35,10 +35,10 @@ const module = (function() {
 
     return {
         initialize: function(id) {
-            const web_prefix = id.replace(".", "_");
+            const sbml_prefix = id.replace(".", "_");
             const dir_path = this.__ENV__["dir-path"];
 
-            global[`${web_prefix}__on_web_loaded`] = function(data) {
+            global[`${sbml_prefix}__on_web_loaded`] = function(data) {
                 if (data["is-for-main-frame"] === "yes") {
                     webjs.initialize(`${id}.web`, "__web_bridge__");
                 }
@@ -49,8 +49,8 @@ const module = (function() {
             view.object(id).action("load", { 
                 "filename": `${dir_path}/web.sbml`,
                 "dir-path": dir_path,
-                "web-id": id, 
-                "web-prefix": web_prefix
+                "sbml-id": id, 
+                "sbml-prefix": sbml_prefix
             });
 
             _id = id, _dir_path = dir_path;

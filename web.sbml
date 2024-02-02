@@ -1,8 +1,8 @@
 =begin sbml
 
-=object web: id=${web-id}.web, \
+=object web: id=${sbml-id}.web, \
             javascript-bridge="__web_bridge__", uses-browser-user-agent=yes, \
-            script-when-loaded=${web-prefix}__on_web_loaded, \
+            script-when-loaded=${sbml-prefix}__on_web_loaded, \
             style=web
 
 =end sbml

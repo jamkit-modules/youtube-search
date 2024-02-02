@@ -1,7 +1,7 @@
 function getVideos(nextToken, onResult, onError) {
     if (nextToken) {
         if (_loadNextPage()) {
-            setTimeout(function() {
+            setTimeout(() => {
                 _getVideos(nextToken, 1, onResult, onError);
             }, 200);
         } else {
@@ -14,17 +14,17 @@ function getVideos(nextToken, onResult, onError) {
 
 function _getVideos(location, waitingCount, onResult, onError) {
     try {
-        const videoItems = document.getElementsByTagName('ytm-video-with-context-renderer');
+        const videoItems = document.getElementsByTagName("ytm-video-with-context-renderer");
         const videos = [];
 
         if (videoItems.length > location) {
             for (var i = location; i < videoItems.length; i++) {
                 try {
                     videos.push({
-                        "url": videoItems[i].getElementsByClassName('media-item-thumbnail-container')[0].href,
-                        "title": videoItems[i].getElementsByClassName('media-item-headline')[0].textContent,
-                        "viewCount": videoItems[i].getElementsByClassName('ytm-badge-and-byline-item-byline')[1].textContent,
-                        "publishedDate": videoItems[i].getElementsByClassName('ytm-badge-and-byline-item-byline')[2].textContent
+                        "url": videoItems[i].getElementsByClassName("media-item-thumbnail-container")[0].href,
+                        "title": videoItems[i].getElementsByClassName("media-item-headline")[0].textContent,
+                        "viewCount": videoItems[i].getElementsByClassName("ytm-badge-and-byline-item-byline")[1].textContent,
+                        "publishedDate": videoItems[i].getElementsByClassName("ytm-badge-and-byline-item-byline")[2].textContent
                     });
                 } catch (e) {
                     // eat up
@@ -32,14 +32,14 @@ function _getVideos(location, waitingCount, onResult, onError) {
             }
     
             if (waitingCount > 0) {
-                setTimeout(function() {
+                setTimeout(() => {
                     _getVideos(location, waitingCount - 1, onResult, onError);
                 }, 200);
             } else {
                 onResult({ "videos": videos });
             }
         } else {
-            setTimeout(function() {
+            setTimeout(() => {
                 _getVideos(location, waitingCount, onResult, onError);
             }, 200);
         }
