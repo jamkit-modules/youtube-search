@@ -33,7 +33,7 @@ youtube.search("Blackpink MV", 0)
   });
 ```
 
-## Prerequisite
+## Prerequisites
 
 - [webjs-helper](https://github.com/jamkit-modules/webjs-helper) 
 - [webjs-feed](https://github.com/jamkit-modules/webjs-feed) 
