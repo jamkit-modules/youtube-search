@@ -25,12 +25,12 @@
 const youtube = require("youtube-search").initialize("sbml.youtube");
 
 youtube.search("Blackpink MV", 0)
-  .then((result) => {
-    ...
-  })
-  .catch((error) => {
-    ...
-  });
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
 ```
 
 ## Prerequisites
